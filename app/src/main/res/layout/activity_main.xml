@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_main"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/margin_large"
-    android:paddingLeft="@dimen/activity_vertical_margin"
-    android:paddingRight="@dimen/activity_vertical_margin"
-    android:paddingTop="@dimen/margin_large"
     tools:context="nhn.calendarapp.MainActivity">
 
+
     <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/white_card">
+        android:id="@+id/card"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/margin_xx_large"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:layout_marginTop="@dimen/margin_large"
+        android:background="@drawable/white_card"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/title"
@@ -35,37 +40,126 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="@dimen/activity_vertical_margin"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="25dp" />
+            app:layout_constraintGuide_begin="@dimen/activity_vertical_margin" />
 
         <android.support.constraint.Guideline
             android:id="@+id/end_guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="@dimen/activity_vertical_margin"
-            tools:layout_editor_absoluteX="336dp"
-            tools:layout_editor_absoluteY="25dp" />
+            app:layout_constraintGuide_end="@dimen/activity_vertical_margin" />
 
         <TextView
             android:id="@+id/task_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
             android:text="@string/task_name"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/title"
-            tools:layout_editor_absoluteX="16dp" />
+            app:layout_constraintTop_toBottomOf="@+id/title" />
 
         <EditText
+            android:id="@+id/ed_task_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:inputType="text"
             app:layout_constraintEnd_toStartOf="@id/end_guideline"
             app:layout_constraintStart_toStartOf="@id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/task_name"
-            tools:layout_editor_absoluteX="8dp" />
+            app:layout_constraintTop_toBottomOf="@+id/task_name" />
+
+        <TextView
+            android:id="@+id/tv_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/summary"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/ed_task_name" />
+
+        <EditText
+            android:id="@+id/ed_summary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            app:layout_constraintEnd_toStartOf="@id/end_guideline"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/tv_summary" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/date"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/ed_summary"
+            tools:layout_editor_absoluteX="32dp" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/date"
+            app:layout_constraintTop_toBottomOf="@+id/ed_summary" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_middle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <EditText
+            android:id="@+id/ed_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            app:layout_constraintEnd_toEndOf="@id/guideline_middle"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/date" />
+
+
+        <EditText
+            android:id="@+id/ed_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="time"
+            app:layout_constraintEnd_toEndOf="@id/end_guideline"
+            app:layout_constraintStart_toEndOf="@id/guideline_middle"
+            app:layout_constraintTop_toBottomOf="@+id/time" />
+
+        <TextView
+            android:id="@+id/remind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/remind"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/ed_date" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/switch_remind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@id/guideline_middle"
+            app:layout_constraintTop_toBottomOf="@+id/ed_time" />
 
     </android.support.constraint.ConstraintLayout>
 
-</LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_check"
+        app:backgroundTint="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="@id/card"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card" />
+
+
+</android.support.constraint.ConstraintLayout>

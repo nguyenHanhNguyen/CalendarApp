@@ -2,4 +2,8 @@
     <string name="app_name">CalendarApp</string>
     <string name="create_a_task">Create a Task</string>
     <string name="task_name">Task Name</string>
+    <string name="summary">Summary</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="remind">Remind</string>
 </resources>
