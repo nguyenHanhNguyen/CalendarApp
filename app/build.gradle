@@ -30,15 +30,10 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
 
-    testCompile 'junit:junit:4.12'
-//    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:design:25.3.1'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
     /*kotlin - data binding*/
-    kapt "com.android.databinding:compiler:2.3.2"
 
     /*components*/
     compile 'android.arch.lifecycle:runtime:' + rootProject.archLifecycleVersion
@@ -47,6 +42,14 @@ dependencies {
 
     compile 'android.arch.persistence.room:runtime:' + rootProject.archRoomVersion
     annotationProcessor 'android.arch.persistence.room:compiler:' + rootProject.archRoomVersion
+
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.github.vipulasri:timelineview:1.0.5'
+    testCompile 'junit:junit:4.12'
+    kapt 'com.android.databinding:compiler:2.3.2'
 }
 
 repositories {
