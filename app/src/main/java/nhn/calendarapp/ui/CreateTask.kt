@@ -8,8 +8,8 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import nhn.calendarapp.R
 import nhn.calendarapp.databinding.ActivityCreateTaskBinding
-import nhn.calendarapp.model.Task
-import nhn.calendarapp.model.TaskViewModel
+import nhn.calendarapp.data.Task
+import nhn.calendarapp.data.TaskViewModel
 
 class CreateTask : AppCompatActivity() {
 

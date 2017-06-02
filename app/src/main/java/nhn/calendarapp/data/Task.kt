@@ -1,4 +1,4 @@
-package nhn.calendarapp.model
+package nhn.calendarapp.data
 
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity

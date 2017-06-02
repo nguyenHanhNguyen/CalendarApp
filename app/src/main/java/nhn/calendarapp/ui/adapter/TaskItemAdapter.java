@@ -10,7 +10,7 @@ import com.github.vipulasri.timelineview.TimelineView;
 import java.util.ArrayList;
 
 import nhn.calendarapp.R;
-import nhn.calendarapp.model.Task;
+import nhn.calendarapp.data.Task;
 
 /**
  * Created by nguyennguyen on 1/6/17.

@@ -1,10 +1,9 @@
-package nhn.calendarapp.local.dao
+package nhn.calendarapp.data
 
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Delete
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
-import nhn.calendarapp.model.Task
 
 /**
  * Created by nguyennguyen on 31/5/17.

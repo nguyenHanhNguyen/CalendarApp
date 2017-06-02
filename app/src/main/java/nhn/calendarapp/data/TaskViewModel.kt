@@ -1,4 +1,4 @@
-package nhn.calendarapp.model
+package nhn.calendarapp.data
 
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
