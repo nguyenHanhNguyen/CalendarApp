@@ -13,8 +13,6 @@ import nhn.calendarapp.model.Task
 @Database(entities = arrayOf(Task::class), version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
-    private var instance: Database? = null
-
     abstract fun taskDao(): TaskDao
 
     companion object {

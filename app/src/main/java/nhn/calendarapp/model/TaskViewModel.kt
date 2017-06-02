@@ -14,6 +14,10 @@ class TaskViewModel constructor(application: Application): AndroidViewModel(appl
     private var tasksList: LiveData<ArrayList<Task>>? = null
     private var database: AppDatabase? = null
 
+    init {
+        database = AppDatabase.createPersistenceDatabase(application)
+    }
+
     fun TaskViewModel(application: Application) {
         database = AppDatabase.createPersistenceDatabase(application)
     }

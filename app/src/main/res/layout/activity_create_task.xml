@@ -3,6 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="handler"
+            type="nhn.calendarapp.ui.CreateTask.Handler" />
+
+    </data>
+
     <android.support.constraint.ConstraintLayout
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
@@ -154,8 +162,10 @@
         </android.support.constraint.ConstraintLayout>
 
         <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_create"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:onClick="@{()->handler.onFabCreateClick()}"
             android:src="@drawable/ic_check"
             app:backgroundTint="@color/colorPrimaryDark"
             app:layout_constraintBottom_toBottomOf="@id/card"

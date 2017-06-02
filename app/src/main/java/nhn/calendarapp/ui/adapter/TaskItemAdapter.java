@@ -55,7 +55,7 @@ public class TaskItemAdapter extends RecyclerView.Adapter<TaskItemAdapter.ViewHo
 
         public ViewHolder(View itemView, int viewType) {
             super(itemView);
-            timelineView = (TimelineView) itemView.findViewById(R.id.timeline);
+            timelineView = (TimelineView) itemView.findViewById(R.id.timeline_marker);
             timelineView.initLine(viewType);
             tvTime = (TextView) itemView.findViewById(R.id.tv_task_time);
             tvTaskName = (TextView) itemView.findViewById(R.id.task_name);
