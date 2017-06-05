@@ -1,115 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="@dimen/activity_vertical_margin"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="0dp" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline_horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="@dimen/activity_vertical_margin"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline_end"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="@dimen/activity_vertical_margin"
-        tools:layout_editor_absoluteX="368dp"
-        tools:layout_editor_absoluteY="0dp" />
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/padding_small">
 
     <TextView
         android:id="@+id/tv_task_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:padding="@dimen/padding_small"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="@+id/guideline_start"
-        app:layout_constraintTop_toTopOf="@+id/guideline_horizontal"
         tools:text="11.30 AM" />
 
     <com.github.vipulasri.timelineview.TimelineView
         android:id="@+id/timeline_marker"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/tv_task_time"
-        app:layout_constraintTop_toTopOf="@+id/guideline_horizontal"
+        android:layout_height="match_parent"
         app:line="@color/blueViolet"
         app:linePadding="3dp"
         app:lineSize="2dp"
         app:markerSize="10dp" />
 
     <android.support.v7.widget.CardView
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small"
         android:layout_marginLeft="@dimen/margin_small"
         android:layout_marginStart="@dimen/margin_small"
         android:padding="@dimen/padding_small"
-        app:cardElevation="5dp"
-        app:contentPadding="5dp"
-        app:layout_constraintLeft_toRightOf="@+id/timeline_marker"
-        app:layout_constraintRight_toLeftOf="@+id/guideline_end"
-        app:layout_constraintTop_toTopOf="@+id/guideline_horizontal">
+        app:cardElevation="3dp"
+        app:contentPadding="5dp">
 
-        <android.support.constraint.ConstraintLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:padding="@dimen/padding_small">
 
             <TextView
                 android:id="@+id/task_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="17sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:layout_editor_absoluteX="114dp"
                 tools:text="Task Name" />
 
-            <android.support.constraint.Guideline
-                android:id="@+id/guideline_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.7" />
-
-            <TextView
-                android:id="@+id/task_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:textAppearanceSmall"
-                app:layout_constraintStart_toStartOf="@id/guideline_time"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="11.30-12.00" />
 
             <TextView
                 android:id="@+id/task_desc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/task_name"
                 android:textAppearance="?android:textAppearanceSmall"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/task_name"
                 tools:text="Task Description" />
 
-        </android.support.constraint.ConstraintLayout>
+            <TextView
+                android:id="@+id/task_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:textAppearance="?android:textAppearanceSmall"
+                tools:text="11.30-12.00" />
+
+
+        </RelativeLayout>
 
     </android.support.v7.widget.CardView>
 
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

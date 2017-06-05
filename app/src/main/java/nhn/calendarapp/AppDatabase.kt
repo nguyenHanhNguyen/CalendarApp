@@ -4,8 +4,8 @@ import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
-import nhn.calendarapp.data.TaskDao
 import nhn.calendarapp.data.Task
+import nhn.calendarapp.data.TaskDao
 
 /**
  * Created by nguyennguyen on 31/5/17.

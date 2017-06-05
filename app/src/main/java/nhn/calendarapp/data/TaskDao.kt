@@ -1,5 +1,6 @@
 package nhn.calendarapp.data
 
+import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Delete
 import android.arch.persistence.room.Insert
@@ -13,7 +14,7 @@ import android.arch.persistence.room.Query
 interface TaskDao {
 
     @Query("SELECT * FROM task")
-    fun getAll(): List<Task>
+    fun getAll(): LiveData<List<Task>>
 
     @Insert
     fun insertAll(vararg task: Task)

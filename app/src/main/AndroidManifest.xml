@@ -16,9 +16,7 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".ui.CreateTask"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity android:name=".ui.CreateTask" />
     </application>
 
 </manifest>
