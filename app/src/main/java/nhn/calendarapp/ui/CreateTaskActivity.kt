@@ -16,7 +16,7 @@ import nhn.calendarapp.databinding.ActivityCreateTaskBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
-class CreateTask : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
+class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
     private lateinit var binding: ActivityCreateTaskBinding
 
@@ -29,8 +29,6 @@ class CreateTask : AppCompatActivity(), DatePickerDialog.OnDateSetListener, Time
         binding = DataBindingUtil.setContentView(this, R.layout.activity_create_task)
         binding.handler = Handler(this, this)
         taskViewModel = ViewModelProviders.of(this).get(TaskViewModel::class.java)
-
-
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
@@ -50,12 +48,14 @@ class CreateTask : AppCompatActivity(), DatePickerDialog.OnDateSetListener, Time
     }
 
 
-    inner class Handler constructor(internal var context: Context, internal var activity: CreateTask) {
+    inner class Handler constructor(internal var context: Context, internal var activity: CreateTaskActivity) {
 
         fun onFabCreateClick() {
             val task = Task()
             task.taskName = binding.edTaskName.text.toString()
             task.taskDesc = binding.edSummary.text.toString()
+            task.taskDate = binding.edDate.text.toString()
+            task.taskTime = binding.edTime.text.toString()
             taskViewModel.createTask(task)
             finish()
         }

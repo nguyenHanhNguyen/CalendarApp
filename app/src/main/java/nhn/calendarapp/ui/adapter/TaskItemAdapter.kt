@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.github.vipulasri.timelineview.TimelineView
 import nhn.calendarapp.R
 import nhn.calendarapp.data.Task
 
@@ -41,19 +40,19 @@ class TaskItemAdapter : RecyclerView.Adapter<TaskItemAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View, viewType: Int) : RecyclerView.ViewHolder(itemView) {
 
-        var timelineView: TimelineView
+//        var timelineView: TimelineView
         var tvTime: TextView
         var tvTaskName: TextView
         var tvTaskDesc: TextView
-        var tvTimeMark: TextView
+//        var tvTimeMark: TextView
 
         init {
-            timelineView = itemView.findViewById(R.id.timeline_marker) as TimelineView
-            timelineView.initLine(viewType)
+           // timelineView = itemView.findViewById(R.id.timeline_marker) as TimelineView
+            //timelineView.initLine(viewType)
             tvTime = itemView.findViewById(R.id.task_time) as TextView
             tvTaskName = itemView.findViewById(R.id.task_name) as TextView
             tvTaskDesc = itemView.findViewById(R.id.task_desc) as TextView
-            tvTimeMark = itemView.findViewById(R.id.tv_task_time) as TextView
+//            tvTimeMark = itemView.findViewById(R.id.tv_task_time) as TextView
         }
     }
 

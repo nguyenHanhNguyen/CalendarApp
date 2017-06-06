@@ -7,7 +7,7 @@
 
         <variable
             name="handler"
-            type="nhn.calendarapp.ui.CreateTask.Handler" />
+            type="nhn.calendarapp.ui.CreateTaskActivity.Handler" />
 
     </data>
 
@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bg_main"
-        tools:context="nhn.calendarapp.ui.CreateTask">
+        tools:context="nhn.calendarapp.ui.CreateTaskActivity">
 
 
         <android.support.constraint.ConstraintLayout
