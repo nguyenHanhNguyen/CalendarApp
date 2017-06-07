@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#c77cfd</color>
-    <color name="colorPrimaryDark">#7938FB</color>
-    <color name="colorAccent">#DDCBF8</color>
+    <color name="colorPrimary">#7938FB</color>
+    <color name="colorPrimaryDark">#58529A</color>
+    <color name="colorAccent">#CA8DC8 </color>
     <color name="blueViolet">#7938FB</color>
     <color name="heliotrope">#c77cfd</color>
     <color name="mediumPurple">#A55CFB</color>

@@ -1,9 +1,11 @@
 package nhn.calendarapp.ui.adapter
 
+import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.github.vipulasri.timelineview.TimelineView
 import nhn.calendarapp.R
 import nhn.calendarapp.data.Task
 
@@ -13,9 +15,11 @@ import nhn.calendarapp.data.Task
 class TaskItemAdapter : RecyclerView.Adapter<TaskItemAdapter.ViewHolder>() {
 
     private var taskList: List<Task>? = null
+    private lateinit var context: Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = View.inflate(parent.context, R.layout.item_task, null)
+        context = parent.context
         return ViewHolder(view, viewType)
     }
 
@@ -24,6 +28,7 @@ class TaskItemAdapter : RecyclerView.Adapter<TaskItemAdapter.ViewHolder>() {
         holder.tvTaskDesc.text = task.taskDesc
         holder.tvTaskName.text = task.taskName
         holder.tvTime.text = task.taskTime
+        holder.timelineView.setMarker(context.resources.getDrawable(R.drawable.ic_marker))
     }
 
     override fun getItemCount(): Int {
@@ -40,19 +45,17 @@ class TaskItemAdapter : RecyclerView.Adapter<TaskItemAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View, viewType: Int) : RecyclerView.ViewHolder(itemView) {
 
-//        var timelineView: TimelineView
+        var timelineView: TimelineView
         var tvTime: TextView
         var tvTaskName: TextView
         var tvTaskDesc: TextView
-//        var tvTimeMark: TextView
 
         init {
-           // timelineView = itemView.findViewById(R.id.timeline_marker) as TimelineView
-            //timelineView.initLine(viewType)
+            timelineView = itemView.findViewById(R.id.timeline_marker) as TimelineView
+            timelineView.initLine(viewType)
             tvTime = itemView.findViewById(R.id.task_time) as TextView
             tvTaskName = itemView.findViewById(R.id.task_name) as TextView
             tvTaskDesc = itemView.findViewById(R.id.task_desc) as TextView
-//            tvTimeMark = itemView.findViewById(R.id.tv_task_time) as TextView
         }
     }
 
