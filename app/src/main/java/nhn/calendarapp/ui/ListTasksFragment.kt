@@ -71,7 +71,7 @@ class ListTasksFragment : LifecycleFragment() {
     }
 
     fun setUpRcvView(tasks: List<Task>) {
-        val layoutManager = LinearLayoutManager(activity)
+        val layoutManager = LinearLayoutManager(context)
         binding.rcvTasksList.layoutManager = layoutManager
         taskItemAdapter = TaskItemAdapter()
         taskItemAdapter.setItem(tasks)

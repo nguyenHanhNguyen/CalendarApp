@@ -72,7 +72,7 @@ class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
         fun onTimeClick() {
             val calendar = Calendar.getInstance()
             val hour = calendar.get(Calendar.HOUR)
-            var minute = calendar.get(Calendar.MINUTE)
+            val minute = calendar.get(Calendar.MINUTE)
             val timePickerDialog = TimePickerDialog(context, activity, hour, minute, false)
             timePickerDialog.show()
         }
