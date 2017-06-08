@@ -95,13 +95,13 @@
                 android:id="@+id/ed_summary"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
                 android:inputType="textMultiLine"
                 android:text="@={task.taskDesc}"
                 app:layout_constraintEnd_toStartOf="@id/end_guideline"
                 app:layout_constraintStart_toStartOf="@id/guideline"
                 app:layout_constraintTop_toBottomOf="@+id/tv_summary"
-                tools:layout_editor_absoluteX="16dp"
-                android:layout_marginTop="0dp" />
+                tools:layout_editor_absoluteX="16dp" />
 
             <TextView
                 android:id="@+id/date"
@@ -199,7 +199,8 @@
             android:id="@+id/fab_create"
             android:layout_width="50dp"
             android:layout_height="50dp"
-
+            android:background="@drawable/fab_state"
+            android:clickable="@{task.canCreateTask}"
             android:onClick="@{()->handler.onFabCreateClick(task)}"
             android:src="@drawable/ic_check"
             app:backgroundTint="@color/colorPrimaryDark"

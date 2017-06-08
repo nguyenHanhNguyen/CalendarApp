@@ -13,6 +13,7 @@ class ListTasksActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_list_tasks)
+        this.supportActionBar!!.title = baseContext.getString(R.string.task_list)
     }
 
 }

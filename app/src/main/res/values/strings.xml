@@ -6,4 +6,6 @@
     <string name="date">Date</string>
     <string name="time">Time</string>
     <string name="remind">Remind</string>
+    <string name="create_task">Create Task</string>
+    <string name="task_list">List Task</string>
 </resources>

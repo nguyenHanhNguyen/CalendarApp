@@ -22,32 +22,32 @@ class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
 
     private lateinit var taskViewModel: TaskViewModel
 
-    val myCalendar = Calendar.getInstance()
-
     val dateSdf = SimpleDateFormat("dd/MM/yyyy", Locale.US)
 
     val timeSdf = SimpleDateFormat("hh:mm aaa", Locale.US)
 
+    val calendar = Calendar.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_create_task)
+        this.supportActionBar!!.title = baseContext.getString(R.string.create_task)
         binding.handler = Handler(this, this)
         binding.task = Task()
-
         taskViewModel = ViewModelProviders.of(this).get(TaskViewModel::class.java)
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        myCalendar.set(Calendar.YEAR, year)
-        myCalendar.set(Calendar.MONTH, month)
-        myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-        binding.edDate.setText(dateSdf.format(myCalendar.time))
+        calendar.set(Calendar.YEAR, year)
+        calendar.set(Calendar.MONTH, month)
+        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+        binding.edDate.setText(dateSdf.format(calendar.time))
     }
 
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
-        myCalendar.set(Calendar.HOUR, hourOfDay)
-        myCalendar.set(Calendar.MINUTE, minute)
-        binding.edTime.setText(timeSdf.format(myCalendar.time))
+        calendar.set(Calendar.HOUR, hourOfDay)
+        calendar.set(Calendar.MINUTE, minute)
+        binding.edTime.setText(timeSdf.format(calendar.time))
     }
 
 
@@ -59,7 +59,6 @@ class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
         }
 
         fun onDateClick() {
-            val calendar = Calendar.getInstance()
             val year = calendar.get(Calendar.YEAR)
             val month = calendar.get(Calendar.MONTH)
             val day = calendar.get(Calendar.DAY_OF_MONTH)
@@ -68,7 +67,6 @@ class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
         }
 
         fun onTimeClick() {
-            val calendar = Calendar.getInstance()
             val hour = calendar.get(Calendar.HOUR)
             val minute = calendar.get(Calendar.MINUTE)
             val timePickerDialog = TimePickerDialog(context, activity, hour, minute, false)
