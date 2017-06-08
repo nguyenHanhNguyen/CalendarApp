@@ -24,27 +24,30 @@ class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
 
     val myCalendar = Calendar.getInstance()
 
+    val dateSdf = SimpleDateFormat("dd/MM/yyyy", Locale.US)
+
+    val timeSdf = SimpleDateFormat("hh:mm aaa", Locale.US)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_create_task)
         binding.handler = Handler(this, this)
+        binding.task = Task()
+
         taskViewModel = ViewModelProviders.of(this).get(TaskViewModel::class.java)
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-
-        val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.US)
         myCalendar.set(Calendar.YEAR, year)
         myCalendar.set(Calendar.MONTH, month)
         myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-        binding.edDate.setText(sdf.format(myCalendar.time))
+        binding.edDate.setText(dateSdf.format(myCalendar.time))
     }
 
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
-        val sdf = SimpleDateFormat("hh:mm aaa", Locale.US)
         myCalendar.set(Calendar.HOUR, hourOfDay)
         myCalendar.set(Calendar.MINUTE, minute)
-        binding.edTime.setText(sdf.format(myCalendar.time))
+        binding.edTime.setText(timeSdf.format(myCalendar.time))
     }
 
 
@@ -54,8 +57,8 @@ class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
             val task = Task()
             task.taskName = binding.edTaskName.text.toString()
             task.taskDesc = binding.edSummary.text.toString()
-            task.taskDate = binding.edDate.text.toString()
-            task.taskTime = binding.edTime.text.toString()
+            task.taskDate = dateSdf.parse(binding.edDate.text.toString())
+            task.taskTime = timeSdf.parse(binding.edTime.text.toString())
             taskViewModel.createTask(task)
             finish()
         }

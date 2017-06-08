@@ -32,7 +32,7 @@ class ListTasksFragment : LifecycleFragment() {
 
     private lateinit var taskItemAdapter: TaskItemAdapter
 
-    val sdf = SimpleDateFormat("MMM-yyyy", Locale.US)
+    val sdf = SimpleDateFormat("MMM yyyy", Locale.US)
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate<ListTasksFragmentBinding>(inflater, R.layout.list_tasks_fragment, container, false)
