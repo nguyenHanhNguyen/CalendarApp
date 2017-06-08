@@ -199,8 +199,8 @@
             android:id="@+id/fab_create"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:clickable="@{task.canCreateTask}"
-            android:onClick="@{()->handler.onFabCreateClick()}"
+
+            android:onClick="@{()->handler.onFabCreateClick(task)}"
             android:src="@drawable/ic_check"
             app:backgroundTint="@color/colorPrimaryDark"
             app:layout_constraintBottom_toBottomOf="@id/card"

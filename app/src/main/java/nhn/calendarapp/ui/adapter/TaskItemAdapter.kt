@@ -8,6 +8,8 @@ import android.widget.TextView
 import com.github.vipulasri.timelineview.TimelineView
 import nhn.calendarapp.R
 import nhn.calendarapp.data.Task
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * Created by nguyennguyen on 1/6/17.
@@ -24,10 +26,11 @@ class TaskItemAdapter : RecyclerView.Adapter<TaskItemAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val sdf = SimpleDateFormat("hh:mm aaa", Locale.US)
         val task = taskList!![position]
         holder.tvTaskDesc.text = task.taskDesc
         holder.tvTaskName.text = task.taskName
-        holder.tvTime.text = task.taskTime
+        holder.tvTime.text = (task.taskTime)
         holder.timelineView.setMarker(context.resources.getDrawable(R.drawable.ic_marker))
     }
 

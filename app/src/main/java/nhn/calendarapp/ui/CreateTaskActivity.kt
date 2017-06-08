@@ -53,12 +53,7 @@ class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
 
     inner class Handler constructor(internal var context: Context, internal var activity: CreateTaskActivity) {
 
-        fun onFabCreateClick() {
-            val task = Task()
-            task.taskName = binding.edTaskName.text.toString()
-            task.taskDesc = binding.edSummary.text.toString()
-            task.taskDate = dateSdf.parse(binding.edDate.text.toString())
-            task.taskTime = timeSdf.parse(binding.edTime.text.toString())
+        fun onFabCreateClick(task: Task) {
             taskViewModel.createTask(task)
             finish()
         }
