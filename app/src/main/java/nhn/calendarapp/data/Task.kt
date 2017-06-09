@@ -6,7 +6,6 @@ import android.arch.persistence.room.Ignore
 import android.arch.persistence.room.PrimaryKey
 import android.databinding.ObservableBoolean
 import android.text.TextUtils
-import java.util.*
 
 /**
  * Created by nguyennguyen on 30/5/17.
@@ -37,14 +36,14 @@ class Task {
         }
 
     @ColumnInfo(name = "task_time")
-    var taskTime: Date = Calendar.getInstance().time
+    var taskTime: Long? = null
         set(value) {
             field = value
             canCreateTask.set(allowCreateTask())
         }
 
     @ColumnInfo(name = "task_date")
-    var taskDate: Date = Calendar.getInstance().time
+    var taskDate: Long? = null
         set(value) {
             field = value
             canCreateTask.set(allowCreateTask())

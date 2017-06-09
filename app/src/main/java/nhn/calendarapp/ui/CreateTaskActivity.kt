@@ -73,12 +73,12 @@ class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
             timePickerDialog.show()
         }
 
-        fun formatDateTask(date: String): Date {
-            return dateSdf.parse(date)
+        fun formatDateTask(date: String): Long {
+            return dateSdf.parse(date).time
         }
 
-        fun formatTimeTask(time: String): Date {
-            return timeSdf.parse(time)
+        fun formatTimeTask(time: String): Long {
+            return timeSdf.parse(time).time
         }
 
 
