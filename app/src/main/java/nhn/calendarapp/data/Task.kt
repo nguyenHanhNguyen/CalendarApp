@@ -53,7 +53,6 @@ class Task {
 
     fun allowCreateTask(): Boolean {
         return !TextUtils.isEmpty(taskName) && !TextUtils.isEmpty(taskDesc)
-                && !TextUtils.isEmpty(taskDate.toString()) && !TextUtils.isEmpty(taskTime.toString())
     }
 
 }

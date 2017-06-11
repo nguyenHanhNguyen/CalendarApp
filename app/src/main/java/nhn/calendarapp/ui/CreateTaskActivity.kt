@@ -4,9 +4,12 @@ import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
+import android.databinding.BindingAdapter
+import android.databinding.BindingConversion
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.text.TextUtils
 import android.widget.DatePicker
 import android.widget.TimePicker
 import nhn.calendarapp.R
@@ -53,7 +56,29 @@ class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
 
     inner class Handler constructor(internal var context: Context, internal var activity: CreateTaskActivity) {
 
-        fun onFabCreateClick(task: Task) {
+
+        fun onFabCreateClick() {
+            var task = Task()
+            if (TextUtils.isEmpty(binding.edTaskName.text.toString())) {
+                binding.edTaskName.error = "Please input task's name"
+            } else {
+                task.taskName = binding.edTaskName.text.toString()
+            }
+            if (TextUtils.isEmpty(binding.edSummary.text.toString())) {
+                binding.edSummary.error = "Please input task's summary"
+            } else {
+                task.taskDesc = binding.edSummary.text.toString()
+            }
+            if (TextUtils.isEmpty(binding.edDate.text.toString())) {
+                binding.edDate.error = "Please input task's date"
+            } else {
+                task.taskDate = formatDateTask(binding.edDate.text.toString())
+            }
+            if (TextUtils.isEmpty(binding.edTime.text.toString())) {
+                binding.edTime.error = "Please input task's time"
+            } else {
+                task.taskTime = formatTimeTask(binding.edTime.text.toString())
+            }
             taskViewModel.createTask(task)
             finish()
         }
