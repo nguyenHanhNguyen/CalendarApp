@@ -4,8 +4,6 @@ import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
-import android.databinding.BindingAdapter
-import android.databinding.BindingConversion
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -59,6 +57,7 @@ class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
 
         fun onFabCreateClick() {
             var task = Task()
+            var valid: Boolean = false
             if (TextUtils.isEmpty(binding.edTaskName.text.toString())) {
                 binding.edTaskName.error = "Please input task's name"
             } else {
@@ -79,7 +78,10 @@ class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
             } else {
                 task.taskTime = formatTimeTask(binding.edTime.text.toString())
             }
-            taskViewModel.createTask(task)
+            if (valid) {
+                taskViewModel.createTask(task)
+            }
+
             finish()
         }
 
