@@ -32,7 +32,8 @@ class ListTasksFragment : LifecycleFragment() {
 
     private lateinit var taskItemAdapter: TaskItemAdapter
 
-    val sdf = SimpleDateFormat("MMM yyyy", Locale.US)
+    val sdfMonth = SimpleDateFormat("MMMM", Locale.US)
+    val sdfYear = SimpleDateFormat("yyyy", Locale.US)
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate<ListTasksFragmentBinding>(inflater, R.layout.list_tasks_fragment, container, false)
@@ -45,20 +46,24 @@ class ListTasksFragment : LifecycleFragment() {
     override fun onResume() {
         super.onResume()
         loadTask()
-        binding.tvMonthYear.setText(sdf.format(binding.calendar.firstDayOfCurrentMonth))
+        binding.tvMonth.setText(sdfMonth.format(binding.calendar.firstDayOfCurrentMonth))
+        binding.tvYear.setText(sdfYear.format(binding.calendar.firstDayOfCurrentMonth))
     }
 
     fun initUI() {
         binding.calendar.setUseThreeLetterAbbreviation(true)
         binding.calendar.setFirstDayOfWeek(Calendar.MONDAY)
-        binding.tvMonthYear.setText(sdf.format(binding.calendar.firstDayOfCurrentMonth))
+        binding.tvMonth.setText(sdfMonth.format(binding.calendar.firstDayOfCurrentMonth))
+        binding.tvYear.setText(sdfYear.format(binding.calendar.firstDayOfCurrentMonth))
         binding.calendar.setListener(object : CompactCalendarView.CompactCalendarViewListener {
             override fun onMonthScroll(firstDayOfNewMonth: Date?) {
-                binding.tvMonthYear.setText(sdf.format(firstDayOfNewMonth))
+                binding.tvMonth.setText(sdfMonth.format(binding.calendar.firstDayOfCurrentMonth))
+                binding.tvYear.setText(sdfYear.format(binding.calendar.firstDayOfCurrentMonth))
             }
 
             override fun onDayClick(dateClicked: Date?) {
-                binding.tvMonthYear.setText(sdf.format(dateClicked))
+                binding.tvMonth.setText(sdfMonth.format(binding.calendar.firstDayOfCurrentMonth))
+                binding.tvYear.setText(sdfYear.format(binding.calendar.firstDayOfCurrentMonth))
             }
 
         })
