@@ -53,7 +53,6 @@ class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
 
     inner class Handler constructor(internal var context: Context, internal var activity: CreateTaskActivity) {
 
-
         fun onFabCreateClick() {
             var task = Task()
             task.taskName = binding.edTaskName.text.toString()
