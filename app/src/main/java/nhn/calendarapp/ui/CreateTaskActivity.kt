@@ -7,6 +7,7 @@ import android.content.Context
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.text.TextUtils
 import android.widget.DatePicker
 import android.widget.TimePicker
 import nhn.calendarapp.R
@@ -84,6 +85,25 @@ class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
 
         fun formatTimeTask(time: String): Int {
             return timeSdf.parse(time).time.toInt()
+        }
+
+        fun showError() {
+            if (TextUtils.isEmpty(binding.edTaskName.text.toString())) {
+                binding.edTaskName.error = "Please fill in task name"
+            } else if (TextUtils.isEmpty(binding.edSummary.text.toString())) {
+                binding.edSummary.error = "Please fill in description"
+            } else if (TextUtils.isEmpty(binding.edDate.text.toString())) {
+                binding.edDate.error = "Please fill in date"
+            } else if (TextUtils.isEmpty(binding.edTime.text.toString())) {
+                binding.edTime.error = "Please fill in time"
+            }
+        }
+
+        fun canCreateTask(): Boolean {
+            return !TextUtils.isEmpty(binding.edTaskName.text.toString())
+                    && !TextUtils.isEmpty(binding.edSummary.text.toString())
+                    && !TextUtils.isEmpty(binding.edDate.text.toString())
+                    && !TextUtils.isEmpty(binding.edTime.text.toString())
         }
 
 
