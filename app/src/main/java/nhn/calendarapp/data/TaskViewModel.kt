@@ -11,6 +11,7 @@ import io.reactivex.schedulers.Schedulers
 import nhn.calendarapp.AppDatabase
 import nhn.calendarapp.repository.TaskRepository
 import nhn.calendarapp.repository.TaskRepositoryImpl
+import java.util.*
 
 /**
  * Created by nguyennguyen on 1/6/17.
@@ -47,6 +48,10 @@ class TaskViewModel constructor(application: Application) : AndroidViewModel(app
 
     fun getTaskList(): LiveData<List<Task>> {
         return taskRepository.getTasks()
+    }
+
+    fun getTaskDate(date: Date) : LiveData<List<Task>> {
+        return taskRepository.getTaskDate(date)
     }
 
 }

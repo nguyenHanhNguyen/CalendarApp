@@ -4,12 +4,17 @@ import android.arch.lifecycle.LiveData
 import io.reactivex.Completable
 import nhn.calendarapp.AppDatabase
 import nhn.calendarapp.data.Task
+import java.util.*
 
 /**
  * Created by nguyennguyen on 5/6/17.
  */
 
 class TaskRepositoryImpl constructor(internal var appDatabase: AppDatabase) : TaskRepository {
+
+    override fun getTaskDate(date: Date): LiveData<List<Task>> {
+        return appDatabase.taskDao().getTaskDate(date)
+    }
 
     override fun addTask(task: Task): Completable {
         return Completable.fromAction { appDatabase.taskDao().insertAll(task) }

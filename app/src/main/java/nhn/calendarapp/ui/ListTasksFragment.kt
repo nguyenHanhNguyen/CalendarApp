@@ -64,6 +64,9 @@ class ListTasksFragment : LifecycleFragment() {
             override fun onDayClick(dateClicked: Date?) {
                 binding.tvMonth.setText(sdfMonth.format(binding.calendar.firstDayOfCurrentMonth))
                 binding.tvYear.setText(sdfYear.format(binding.calendar.firstDayOfCurrentMonth))
+                if (dateClicked != null) {
+                    loadTaskDate(dateClicked)
+                }
             }
 
         })
@@ -81,6 +84,12 @@ class ListTasksFragment : LifecycleFragment() {
         taskItemAdapter = TaskItemAdapter()
         taskItemAdapter.setItem(tasks)
         binding.rcvTasksList.adapter = taskItemAdapter
+    }
+
+    fun loadTaskDate(date: Date) {
+        taskViewModel.getTaskDate(date).observe(this, Observer<List<Task>> {
+            it?.let { setUpRcvView(it) }
+        })
     }
 
     inner class Handler constructor(var context: Context) {
