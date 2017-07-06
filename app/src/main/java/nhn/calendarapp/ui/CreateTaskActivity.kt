@@ -58,7 +58,7 @@ class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
             var task = Task()
             task.taskName = binding.edTaskName.text.toString()
             task.taskDesc = binding.edSummary.text.toString()
-            task.taskDate = formatDateTask(binding.edDate.text.toString())
+            task.taskDate = (binding.edDate.text.toString())
             task.taskTime = formatTimeTask(binding.edTime.text.toString())
             taskViewModel.createTask(task)
             finish()

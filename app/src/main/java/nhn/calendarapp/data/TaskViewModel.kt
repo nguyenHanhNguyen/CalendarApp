@@ -46,8 +46,8 @@ class TaskViewModel constructor(application: Application) : AndroidViewModel(app
         return taskRepository.getTasks()
     }
 
-//    fun getTaskDate(date: Date): LiveData<List<Task>> {
-//        return taskRepository.getTaskDate(date)
-//    }
+    fun getTaskDate(date: String): LiveData<List<Task>> {
+        return taskRepository.getTaskDate(date)
+    }
 
 }

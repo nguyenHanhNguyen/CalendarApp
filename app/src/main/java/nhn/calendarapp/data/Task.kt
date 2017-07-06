@@ -44,7 +44,7 @@ class Task {
         }
 
     @ColumnInfo(name = "task_date")
-    var taskDate: Int = Calendar.getInstance().timeInMillis.toInt()
+    var taskDate: String = ""
         set(value) {
             field = value
 //            canCreateTask.set(allowCreateTask())

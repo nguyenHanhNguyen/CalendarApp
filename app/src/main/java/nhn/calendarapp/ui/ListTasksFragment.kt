@@ -34,6 +34,7 @@ class ListTasksFragment : LifecycleFragment() {
 
     val sdfMonth = SimpleDateFormat("MMMM", Locale.US)
     val sdfYear = SimpleDateFormat("yyyy", Locale.US)
+    val dateSdf = SimpleDateFormat("dd/MM/yyyy", Locale.US)
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate<ListTasksFragmentBinding>(inflater, R.layout.list_tasks_fragment, container, false)
@@ -45,7 +46,7 @@ class ListTasksFragment : LifecycleFragment() {
 
     override fun onResume() {
         super.onResume()
-        loadTask()
+        loadAllTask()
         binding.tvMonth.setText(sdfMonth.format(binding.calendar.firstDayOfCurrentMonth))
         binding.tvYear.setText(sdfYear.format(binding.calendar.firstDayOfCurrentMonth))
     }
@@ -64,19 +65,26 @@ class ListTasksFragment : LifecycleFragment() {
             override fun onDayClick(dateClicked: Date?) {
                 binding.tvMonth.setText(sdfMonth.format(binding.calendar.firstDayOfCurrentMonth))
                 binding.tvYear.setText(sdfYear.format(binding.calendar.firstDayOfCurrentMonth))
-//                if (dateClicked != null) {
-//                    loadTaskDate(dateClicked)
-//                }
+                if (dateClicked != null) {
+                    loadTaskDate(dateSdf.format(dateClicked))
+                }
             }
 
         })
     }
 
-    fun loadTask() {
+    fun loadAllTask() {
         taskViewModel.getTaskList().observe(this, Observer<List<Task>> {
             it?.let { setUpRcvView(it) }
         })
     }
+
+    fun loadTaskDate(date: String) {
+        taskViewModel.getTaskDate(date).observe(this, Observer<List<Task>> {
+            it?.let { setUpRcvView(it) }
+        })
+    }
+
 
     fun setUpRcvView(tasks: List<Task>) {
         val layoutManager = LinearLayoutManager(context)
@@ -86,11 +94,6 @@ class ListTasksFragment : LifecycleFragment() {
         binding.rcvTasksList.adapter = taskItemAdapter
     }
 
-//    fun loadTaskDate(date: Date) {
-//        taskViewModel.getTaskDate(date).observe(this, Observer<List<Task>> {
-//            it?.let { setUpRcvView(it) }
-//        })
-//    }
 
     inner class Handler constructor(var context: Context) {
 
