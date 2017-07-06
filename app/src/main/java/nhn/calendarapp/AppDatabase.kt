@@ -10,7 +10,7 @@ import nhn.calendarapp.data.TaskDao
 /**
  * Created by nguyennguyen on 31/5/17.
  */
-@Database(entities = arrayOf(Task::class), version = 2)
+@Database(entities = arrayOf(Task::class), version = 3)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun taskDao(): TaskDao

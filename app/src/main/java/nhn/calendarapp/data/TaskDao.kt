@@ -5,7 +5,6 @@ import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Delete
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
-import java.util.*
 
 /**
  * Created by nguyennguyen on 31/5/17.
@@ -23,6 +22,6 @@ interface TaskDao {
     @Delete
     fun delete(task: Task)
 
-    @Query("SELECT * FROM TASK WHERE task_date IN (:date)")
-    fun getTaskDate(date : Date): LiveData<List<Task>>
+    @Query("SELECT * FROM task WHERE task_date = :date)")
+    fun getTaskDate(date : String): LiveData<List<Task>>
 }
