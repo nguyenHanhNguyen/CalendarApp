@@ -1,5 +1,6 @@
 package nhn.calendarapp.ui
 
+import android.app.ActivityOptions
 import android.arch.lifecycle.LifecycleFragment
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -100,7 +101,7 @@ class ListTasksFragment : LifecycleFragment() {
         fun onFabClick() {
             val intent = Intent(context, CreateTaskActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            context.startActivity(intent)
+            context.startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(activity).toBundle())
         }
     }
 

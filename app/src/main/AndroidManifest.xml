@@ -18,7 +18,7 @@
 
         <activity
             android:name=".ui.CreateTaskActivity"
-            android:windowSoftInputMode="adjustPan|adjustResize" />
+            android:windowSoftInputMode="stateVisible|adjustResize" />
     </application>
 
 </manifest>

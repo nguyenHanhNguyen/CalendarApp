@@ -18,10 +18,9 @@ import nhn.calendarapp.repository.TaskRepositoryImpl
 class TaskViewModel constructor(application: Application) : AndroidViewModel(application) {
 
     private var taskRepository: TaskRepository
-    private var appDatabase: AppDatabase
+    private var appDatabase: AppDatabase = AppDatabase.createPersistenceDatabase(application.applicationContext)
 
     init {
-        appDatabase = AppDatabase.createPersistenceDatabase(application.applicationContext)
         taskRepository = TaskRepositoryImpl(appDatabase)
     }
 
