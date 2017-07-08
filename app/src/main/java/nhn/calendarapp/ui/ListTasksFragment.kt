@@ -1,6 +1,5 @@
 package nhn.calendarapp.ui
 
-import android.app.ActivityOptions
 import android.arch.lifecycle.LifecycleFragment
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -11,6 +10,8 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import com.github.sundeepk.compactcalendarview.CompactCalendarView
 import nhn.calendarapp.R
@@ -81,18 +82,27 @@ class ListTasksFragment : LifecycleFragment() {
     }
 
     fun loadTaskDate(date: String) {
-        taskViewModel.getTaskDate(date).observe(this, Observer<List<Task>> {
+        taskViewModel.getTaskByDate(date).observe(this, Observer<List<Task>> {
             it?.let { setUpRcvView(it) }
         })
     }
 
 
     fun setUpRcvView(tasks: List<Task>) {
-        val layoutManager = LinearLayoutManager(context)
-        binding.rcvTasksList.layoutManager = layoutManager
-        taskItemAdapter = TaskItemAdapter()
-        taskItemAdapter.setItem(tasks)
-        binding.rcvTasksList.adapter = taskItemAdapter
+
+        if (tasks.isNotEmpty()) {
+            val layoutManager = LinearLayoutManager(context)
+            binding.rcvTasksList.layoutManager = layoutManager
+            taskItemAdapter = TaskItemAdapter()
+            taskItemAdapter.setItem(tasks)
+            binding.rcvTasksList.adapter = taskItemAdapter
+            binding.rcvTasksList.visibility = VISIBLE
+            binding.tvNoTask.visibility = GONE
+        } else {
+            binding.rcvTasksList.visibility = GONE
+            binding.tvNoTask.visibility = VISIBLE
+        }
+
     }
 
 

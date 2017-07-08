@@ -8,4 +8,5 @@
     <string name="remind">Remind</string>
     <string name="create_task">Create Task</string>
     <string name="task_list">List Task</string>
+    <string name="no_task">You do not have any tasks today. Let\'s go create one</string>
 </resources>

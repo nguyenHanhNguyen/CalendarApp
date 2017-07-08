@@ -23,5 +23,8 @@ interface TaskDao {
     fun delete(task: Task)
 
     @Query("SELECT * FROM task WHERE task_date LIKE :p0")
-    fun getTaskDate(date: String): LiveData<List<Task>>
+    fun getTaskByDate(date: String): LiveData<List<Task>>
+
+    @Query("SELECT * FROM task where id = :p0")
+    fun getTaskById(id: Int): Task
 }

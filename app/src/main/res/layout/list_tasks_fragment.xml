@@ -77,6 +77,19 @@
                 android:layout_margin="@dimen/margin_small"
                 android:padding="@dimen/padding_small" />
 
+            <TextView
+                android:id="@+id/tv_no_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="@dimen/padding_medium"
+                android:text="@string/no_task"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab_create"

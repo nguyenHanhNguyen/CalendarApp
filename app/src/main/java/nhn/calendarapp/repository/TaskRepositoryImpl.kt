@@ -20,8 +20,8 @@ class TaskRepositoryImpl constructor(internal var appDatabase: AppDatabase) : Ta
         return appDatabase.taskDao().getAll()
     }
 
-    override fun getTaskDate(date: String): LiveData<List<Task>> {
-        return appDatabase.taskDao().getTaskDate(date)
+    override fun getTaskByDate(date: String): LiveData<List<Task>> {
+        return appDatabase.taskDao().getTaskByDate(date)
     }
 
 }

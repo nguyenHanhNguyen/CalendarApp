@@ -14,5 +14,5 @@ interface TaskRepository {
 
     fun getTasks(): LiveData<List<Task>>
 
-    fun getTaskDate(date: String): LiveData<List<Task>>
+    fun getTaskByDate(date: String): LiveData<List<Task>>
 }
