@@ -101,7 +101,8 @@ class ListTasksFragment : LifecycleFragment() {
         fun onFabClick() {
             val intent = Intent(context, CreateTaskActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            context.startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(activity).toBundle())
+            context.startActivity(intent)
+//            context.startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(activity).toBundle())
         }
     }
 
