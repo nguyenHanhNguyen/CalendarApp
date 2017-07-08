@@ -24,5 +24,9 @@ class TaskRepositoryImpl constructor(internal var appDatabase: AppDatabase) : Ta
         return appDatabase.taskDao().getTaskByDate(date)
     }
 
+    override fun getTaskById(taskID: Int): Task {
+        return appDatabase.taskDao().getTaskById(taskID)
+    }
+
 }
 

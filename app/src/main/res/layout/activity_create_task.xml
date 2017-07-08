@@ -7,7 +7,7 @@
 
         <variable
             name="handler"
-            type="nhn.calendarapp.ui.CreateTaskActivity.Handler" />
+            type="nhn.calendarapp.ui.create_task.CreateTaskActivity.Handler" />
 
         <variable
             name="task"
@@ -18,14 +18,15 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:scrollbars="none">
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/activity_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/bg_main"
-            tools:context="nhn.calendarapp.ui.CreateTaskActivity">
+            tools:context="nhn.calendarapp.ui.create_task.CreateTaskActivity">
 
 
             <android.support.constraint.ConstraintLayout
@@ -103,7 +104,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
+                    android:imeOptions="actionDone"
                     android:inputType="textMultiLine"
+                    android:scrollbars="horizontal"
                     app:layout_constraintEnd_toStartOf="@id/end_guideline"
                     app:layout_constraintStart_toStartOf="@id/guideline"
                     app:layout_constraintTop_toBottomOf="@+id/tv_summary"

@@ -32,6 +32,7 @@ class TaskItemAdapter : RecyclerView.Adapter<TaskItemAdapter.ViewHolder>() {
         holder.tvTaskName.text = task.taskName
         holder.tvTime.text = sdf.format(task.taskTime)
         holder.timelineView.setMarker(context.resources.getDrawable(R.drawable.ic_marker))
+
     }
 
     override fun getItemCount(): Int {

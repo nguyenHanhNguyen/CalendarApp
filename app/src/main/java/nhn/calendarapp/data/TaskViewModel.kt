@@ -49,4 +49,8 @@ class TaskViewModel constructor(application: Application) : AndroidViewModel(app
         return taskRepository.getTaskByDate(date)
     }
 
+    fun getTaskById(taskId: Int) : Task {
+        return taskRepository.getTaskById(taskId)
+    }
+
 }

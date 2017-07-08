@@ -7,14 +7,15 @@
 
         <variable
             name="handler"
-            type="nhn.calendarapp.ui.ListTasksFragment.Handler" />
+            type="nhn.calendarapp.ui.list_task.ListTasksFragment.Handler" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
         android:orientation="vertical"
-        tools:context="nhn.calendarapp.ui.ListTasksActivity">
+        tools:context="nhn.calendarapp.ui.list_task.ListTasksActivity">
 
 
         <LinearLayout

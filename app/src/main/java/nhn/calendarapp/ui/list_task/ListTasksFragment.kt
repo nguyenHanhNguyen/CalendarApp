@@ -1,4 +1,4 @@
-package nhn.calendarapp.ui
+package nhn.calendarapp.ui.list_task
 
 import android.arch.lifecycle.LifecycleFragment
 import android.arch.lifecycle.Observer
@@ -8,6 +8,7 @@ import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -19,6 +20,7 @@ import nhn.calendarapp.data.Task
 import nhn.calendarapp.data.TaskViewModel
 import nhn.calendarapp.databinding.ListTasksFragmentBinding
 import nhn.calendarapp.ui.adapter.TaskItemAdapter
+import nhn.calendarapp.ui.create_task.CreateTaskActivity
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -89,10 +91,9 @@ class ListTasksFragment : LifecycleFragment() {
 
 
     fun setUpRcvView(tasks: List<Task>) {
-
         if (tasks.isNotEmpty()) {
             val layoutManager = LinearLayoutManager(context)
-            binding.rcvTasksList.layoutManager = layoutManager
+            binding.rcvTasksList.layoutManager = layoutManager as RecyclerView.LayoutManager?
             taskItemAdapter = TaskItemAdapter()
             taskItemAdapter.setItem(tasks)
             binding.rcvTasksList.adapter = taskItemAdapter
@@ -102,7 +103,6 @@ class ListTasksFragment : LifecycleFragment() {
             binding.rcvTasksList.visibility = GONE
             binding.tvNoTask.visibility = VISIBLE
         }
-
     }
 
 
