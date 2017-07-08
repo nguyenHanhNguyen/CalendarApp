@@ -21,6 +21,7 @@ import nhn.calendarapp.data.TaskViewModel
 import nhn.calendarapp.databinding.ListTasksFragmentBinding
 import nhn.calendarapp.ui.adapter.TaskItemAdapter
 import nhn.calendarapp.ui.create_task.CreateTaskActivity
+import nhn.calendarapp.ui.edit_task.EditTaskActivity
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -28,7 +29,7 @@ import java.util.*
  * Created by nguyennguyen on 6/6/17.
  */
 
-class ListTasksFragment : LifecycleFragment() {
+class ListTasksFragment : LifecycleFragment(), TaskItemAdapter.onTaskClickListener {
 
     private lateinit var binding: ListTasksFragmentBinding
 
@@ -94,7 +95,7 @@ class ListTasksFragment : LifecycleFragment() {
         if (tasks.isNotEmpty()) {
             val layoutManager = LinearLayoutManager(context)
             binding.rcvTasksList.layoutManager = layoutManager as RecyclerView.LayoutManager?
-            taskItemAdapter = TaskItemAdapter()
+            taskItemAdapter = TaskItemAdapter(this)
             taskItemAdapter.setItem(tasks)
             binding.rcvTasksList.adapter = taskItemAdapter
             binding.rcvTasksList.visibility = VISIBLE
@@ -103,6 +104,12 @@ class ListTasksFragment : LifecycleFragment() {
             binding.rcvTasksList.visibility = GONE
             binding.tvNoTask.visibility = VISIBLE
         }
+    }
+
+    override fun onTaskClick(task: Task) {
+        val intent = Intent(context, EditTaskActivity::class.java)
+        intent.putExtra("TASK_ID", task.id)
+        context.startActivity(intent)
     }
 
 

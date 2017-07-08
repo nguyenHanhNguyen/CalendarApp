@@ -26,5 +26,5 @@ interface TaskDao {
     fun getTaskByDate(date: String): LiveData<List<Task>>
 
     @Query("SELECT * FROM task where id = :p0")
-    fun getTaskById(id: Int): Task
+    fun getTaskById(id: Int): LiveData<Task>
 }
