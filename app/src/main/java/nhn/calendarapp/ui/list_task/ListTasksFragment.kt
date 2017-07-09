@@ -109,6 +109,7 @@ class ListTasksFragment : LifecycleFragment(), TaskItemAdapter.onTaskClickListen
     override fun onTaskClick(task: Task) {
         val intent = Intent(context, EditTaskActivity::class.java)
         intent.putExtra("TASK_ID", task.id)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         context.startActivity(intent)
     }
 
@@ -119,8 +120,7 @@ class ListTasksFragment : LifecycleFragment(), TaskItemAdapter.onTaskClickListen
             val intent = Intent(context, CreateTaskActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             context.startActivity(intent)
-//            context.startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(activity).toBundle())
         }
-    }
 
+    }
 }
